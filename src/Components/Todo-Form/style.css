@@ -1,0 +1,40 @@
+h1 {
+  margin: 32px 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.inp input, .upd input {
+  width: 55%;
+  padding: 15px 15px;
+  margin-top: 5px;
+  background-color: transparent;
+  border: 2px solid #7f00ff;
+  outline: none;
+  color: white;
+  border-radius: 4px 0px 0px 4px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.inp input::-moz-placeholder, .upd input::-moz-placeholder {
+  color: rgb(190, 188, 188);
+}
+.inp input::placeholder, .upd input::placeholder {
+  color: rgb(190, 188, 188);
+}
+.inp button, .upd button {
+  background: #7f00ff;
+  background: linear-gradient(to left, #e100ff, #7f00ff);
+  border: none;
+  padding: 17px 16px;
+  border-radius: 0px 4px 4px 0px;
+  color: white;
+}
+
+.upd input {
+  border: 2px solid #65c7f7;
+}
+.upd button {
+  padding: 17px 23px;
+  background: #65c7f7;
+  background: linear-gradient(to left, #0052d4, #65c7f7);
+}/*# sourceMappingURL=style.css.map */

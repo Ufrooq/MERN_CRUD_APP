@@ -1,0 +1,12 @@
+.todo-card {
+  margin: 15px 10px;
+  border-radius: 4px;
+  padding: 15px 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.todo-card .icons {
+  display: flex;
+}/*# sourceMappingURL=style.css.map */

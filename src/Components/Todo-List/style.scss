@@ -1,0 +1,19 @@
+h1 {
+  margin: 32px 0;
+  color: #fff;
+  font-size: 40px;
+}
+
+.card {
+  background-color: #161a2b;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  h1 {
+    margin: 32px 0;
+    color: #fff;
+    font-size: 24px;
+  }
+  .my-todos {
+    width: 77%;
+  }
+}

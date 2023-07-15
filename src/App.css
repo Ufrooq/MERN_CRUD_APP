@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+body {
+  background: grey;
+  background-size: cover;
+  -webkit-animation: bg-color 10s infintite;
+  animation: bg-color 20s infinite;
+}
+
+@-webkit-keyframes bg-color {
+  14.3% {
+    background-color: #c77df3;
+  }
+  28.6% {
+    background-color: #8a2be2;
+  }
+  42.9% {
+    background-color: #0000ff;
+  }
+  57.2% {
+    background-color: #00ff00;
+  }
+  71.5% {
+    background-color: #ffdd00;
+  }
+  85.8% {
+    background-color: #ff7700;
+  }
+  100% {
+    background-color: #ff0000;
+  }
+}
+
+@keyframes bg-color {
+  14.3% {
+    background-color: #c77df3;
+  }
+  28.6% {
+    background-color: #8a2be2;
+  }
+  42.9% {
+    background-color: #0000ff;
+  }
+  57.2% {
+    background-color: #00ff00;
+  }
+  71.5% {
+    background-color: #ffdd00;
+  }
+  85.8% {
+    background-color: #ff7700;
+  }
+  100% {
+    background-color: #ff0000;
+  }
+}
