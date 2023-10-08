@@ -25,8 +25,8 @@ const TodoForm = ({ addTodo, dataToUpdate_id, editTodo }) => {
   ];
 
   const handleSubmit = async (e) => {
-    const randomId = Math.floor(Math.random() * 100000);
-    const color = colors[randomId];
+    const randomNumber = Math.floor(Math.random() * 8);
+    const color = colors[randomNumber];
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:3001", {
