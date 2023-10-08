@@ -59,11 +59,11 @@ const TodoList = () => {
                 editTodo={editTodo}
               />
               <div className="mx-auto my-todos">
-                <Todos
+                {/* <Todos
                   todos={todos}
                   removeTodo={removeTodo}
                   getTodoToEdit={getTodoToEdit}
-                />
+                /> */}
               </div>
             </div>
           </div>

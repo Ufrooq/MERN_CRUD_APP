@@ -24,21 +24,23 @@ const TodoForm = ({ addTodo, dataToUpdate_id, editTodo }) => {
     "#fa8231",
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const randomId = Math.floor(Math.random() * 100000);
     e.preventDefault();
-    addTodo({
-      id: randomId,
-      text: data,
-      color:
-        colors[
-          randomId % colors.length == preColorID
-            ? preColorID + 1
-            : randomId % colors.length
-        ],
-    });
-    setdata("");
-    setPreColorID(randomId % colors.length);
+    try {
+      const response = await fetch("http://localhost:3001", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: data,
+        }),
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleUpdate = (e) => {
@@ -55,7 +57,7 @@ const TodoForm = ({ addTodo, dataToUpdate_id, editTodo }) => {
       inputRef.current.focus();
     }
   }, [dataToUpdate_id]);
-  //------------------------------------
+  //-------------------------
   return (
     <>
       <h1>What's the Plan for Today?</h1>

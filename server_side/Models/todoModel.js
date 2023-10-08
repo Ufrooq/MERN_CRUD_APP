@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import { Schema, model } from "mongoose";
 
 const todoSchema = new Schema({
   creator: {
@@ -9,3 +9,5 @@ const todoSchema = new Schema({
     require: true,
   },
 });
+
+export const TodoModel = new model("todos", todoSchema);
