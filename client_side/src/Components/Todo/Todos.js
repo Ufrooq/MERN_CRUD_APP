@@ -13,16 +13,16 @@ const Todos = ({ todos, removeTodo, getTodoToEdit }) => {
     setSelectedTodoId(id);
   };
 
-  return todos.map((todo) => (
+  return todos.map((todo, key) => (
     <div
       style={{
         backgroundColor: todo.color,
         opacity: selectedTodoId == todo.id && !isSelectedColor ? 0.5 : 1,
       }}
-      key={todo.id}
+      key={key}
       className="todo-card"
     >
-      <div>{todo.text}</div>
+      <div>{todo.todoText}</div>
       <div className="icons">
         <AiFillEdit
           onClick={() => {

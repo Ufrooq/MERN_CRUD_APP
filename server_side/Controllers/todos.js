@@ -2,7 +2,8 @@ import { TodoModel } from "../Models/todoModel.js";
 
 export const fetchAllTodos = async (req, res) => {
   try {
-    console.log("all todos fetched");
+    const allTodos = await TodoModel.find({});
+    res.status(200).json(allTodos);
   } catch (error) {
     console.log(error);
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TodoForm from "../Todo-Form/TodoForm";
 import { useState } from "react";
 import Todos from "../Todo/Todos";
@@ -46,6 +46,21 @@ const TodoList = () => {
     });
     settodos(newArray);
   };
+
+  const fetchTodos = async () => {
+    try {
+      const response = await fetch("http://localhost:3001");
+      const data = await response.json();
+      console.log(data);
+      settodos(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTodos();
+  }, []);
   return (
     <div className="Main mt-5">
       <h1 className="text-center text-white">Todo App</h1>
@@ -59,11 +74,11 @@ const TodoList = () => {
                 editTodo={editTodo}
               />
               <div className="mx-auto my-todos">
-                {/* <Todos
+                <Todos
                   todos={todos}
                   removeTodo={removeTodo}
                   getTodoToEdit={getTodoToEdit}
-                /> */}
+                />
               </div>
             </div>
           </div>
