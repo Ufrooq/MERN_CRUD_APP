@@ -10,9 +10,9 @@ export const fetchAllTodos = async (req, res) => {
 };
 
 export const addTodo = async (req, res) => {
-  const { data } = req.body;
+  const { text, color } = req.body;
   try {
-    const todo = await TodoModel.create({ todoText: data });
+    const todo = await TodoModel.create({ todoText: text, todoColor: color });
     console.log("todo created");
     res.status(200).json("todo created successfully !");
   } catch (error) {

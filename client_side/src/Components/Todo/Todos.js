@@ -16,7 +16,7 @@ const Todos = ({ todos, removeTodo, getTodoToEdit }) => {
   return todos.map((todo, key) => (
     <div
       style={{
-        backgroundColor: todo.color,
+        backgroundColor: todo.todoColor,
         opacity: selectedTodoId == todo.id && !isSelectedColor ? 0.5 : 1,
       }}
       key={key}

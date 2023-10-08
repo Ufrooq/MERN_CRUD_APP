@@ -26,6 +26,7 @@ const TodoForm = ({ addTodo, dataToUpdate_id, editTodo }) => {
 
   const handleSubmit = async (e) => {
     const randomId = Math.floor(Math.random() * 100000);
+    const color = colors[randomId];
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:3001", {
@@ -34,7 +35,8 @@ const TodoForm = ({ addTodo, dataToUpdate_id, editTodo }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          data: data,
+          text: data,
+          color: color,
         }),
       });
       console.log(response);
