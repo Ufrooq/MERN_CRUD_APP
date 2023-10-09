@@ -56,18 +56,19 @@ const TodoList = () => {
     } else {
       try {
         const response = await fetch("http://localhost:3001", {
-          method: "UPDATE",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            todoId: id,
+            todoId: dataToUpdate_id,
             updatedData: updatedData,
           }),
         });
         console.log(response);
         if (response.ok) {
           fetchTodos();
+          dataToUpdate_id(0);
         }
       } catch (error) {
         console.log(error);

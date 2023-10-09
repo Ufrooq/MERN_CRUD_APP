@@ -32,10 +32,15 @@ export const removeTodo = async (req, res) => {
 
 export const updateTodo = async (req, res) => {
   const { todoId, updatedData } = req.body;
-  console.log(todoId, updatedData);
+  console.log(todoId);
   try {
-    await TodoModel.findByIdAndUpdate(todoId, updatedData);
-    res.status(201).json("todo removed successfully !");
+    await TodoModel.findOneAndUpdate(
+      { _id: todoId },
+      {
+        todoText: updatedData,
+      }
+    );
+    res.status(200).json("todo removed successfully !");
   } catch (error) {
     res.status(500).json(error);
   }
