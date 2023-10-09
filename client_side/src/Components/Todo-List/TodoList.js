@@ -40,11 +40,24 @@ const TodoList = () => {
   };
 
   //  remove todo function --->
-  const removeTodo = (id) => {
-    const newArray = todos.filter((todo) => {
-      return todo.id != id;
-    });
-    settodos(newArray);
+  const removeTodo = async (id) => {
+    try {
+      const response = await fetch("http://localhost:3001", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          todoId: id,
+        }),
+      });
+      console.log(response);
+      if (response.ok) {
+        fetchTodos();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchTodos = async () => {

@@ -17,7 +17,7 @@ const Todos = ({ todos, removeTodo, getTodoToEdit }) => {
     <div
       style={{
         backgroundColor: todo.todoColor,
-        // opacity: selectedTodoId == todo.id && !isSelectedColor ? 0.5 : 1,
+        opacity: selectedTodoId == todo.id && !isSelectedColor ? 0.5 : 1,
       }}
       key={key}
       className="todo-card"
@@ -36,7 +36,7 @@ const Todos = ({ todos, removeTodo, getTodoToEdit }) => {
         />
         <AiFillDelete
           onClick={() => {
-            removeTodo(todo.id);
+            removeTodo(todo._id);
           }}
           size="1.34rem"
           color="white"

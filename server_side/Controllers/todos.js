@@ -5,7 +5,7 @@ export const fetchAllTodos = async (req, res) => {
     const allTodos = await TodoModel.find({});
     res.status(200).json(allTodos);
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
   }
 };
 
@@ -16,6 +16,17 @@ export const addTodo = async (req, res) => {
     console.log("todo created");
     res.status(200).json("todo created successfully !");
   } catch (error) {
-    console.log(error);
+    res.status(500).json(error);
+  }
+};
+
+export const removeTodo = async (req, res) => {
+  const { todoId } = req.body;
+
+  try {
+    await TodoModel.findByIdAndDelete(todoId);
+    res.status(201).json("todo removed successfully !");
+  } catch (error) {
+    res.status(500).json(error);
   }
 };
