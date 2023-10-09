@@ -6,36 +6,72 @@ import Todos from "../Todo/Todos";
 import "./style.css";
 const TodoList = () => {
   const [todos, settodos] = useState([]);
-  const [dataToUpdate, setDataToUpdate] = useState();
   const [dataToUpdate_id, setDataToUpdate_id] = useState(0);
-
+  const colors = [
+    "#8e44ad",
+    "#fd79a8",
+    "#f9ca24",
+    "#badc58",
+    "#eb4d4b",
+    "#ED4C67",
+    "#B53471",
+    "#fa8231",
+  ];
   // add todo function --->
-  const addTodo = (todo) => {
-    if (!todo.text || /^\s*$/.test(todo.text)) {
+
+  const addTodo = async (data) => {
+    if (!data || /^\s*$/.test(data)) {
       alert("Please enter a valid todo!");
     } else {
-      const newTodos = [...todos, todo];
-      settodos(newTodos);
+      const randomNumber = Math.floor(Math.random() * 8);
+      const color = colors[randomNumber];
+      try {
+        const response = await fetch("http://localhost:3001", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            text: data,
+            color: color,
+          }),
+        });
+        if (response.ok) {
+          fetchTodos();
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
-
   // function for getting todo to edit  --->
-  const getTodoToEdit = (TodoToEdit) => {
-    setDataToUpdate(TodoToEdit);
-    setDataToUpdate_id(TodoToEdit.id);
+  const getTodoToEdit = (todoId) => {
+    setDataToUpdate_id(todoId);
   };
 
   // function to edit todo --->
-  const editTodo = (newData) => {
-    if (!newData || /^\s*$/.test(newData)) {
+  const editTodo = async (updatedData) => {
+    if (!updatedData || /^\s*$/.test(updatedData)) {
       alert("Please enter a valid newData!");
     } else {
-      todos.map((data) => {
-        if (data.id == dataToUpdate_id) {
-          data.text = newData;
-          setDataToUpdate_id(0);
+      try {
+        const response = await fetch("http://localhost:3001", {
+          method: "UPDATE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            todoId: id,
+            updatedData: updatedData,
+          }),
+        });
+        console.log(response);
+        if (response.ok) {
+          fetchTodos();
         }
-      });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

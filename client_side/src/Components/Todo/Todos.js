@@ -17,7 +17,7 @@ const Todos = ({ todos, removeTodo, getTodoToEdit }) => {
     <div
       style={{
         backgroundColor: todo.todoColor,
-        opacity: selectedTodoId == todo.id && !isSelectedColor ? 0.5 : 1,
+        opacity: selectedTodoId == todo._id && !isSelectedColor ? 0.5 : 1,
       }}
       key={key}
       className="todo-card"
@@ -26,8 +26,8 @@ const Todos = ({ todos, removeTodo, getTodoToEdit }) => {
       <div className="icons">
         <AiFillEdit
           onClick={() => {
-            getTodoToEdit(todo);
-            handleEditClick(todo.id);
+            getTodoToEdit(todo._id);
+            handleEditClick(todo._id);
             setIsSelectedColor(false);
           }}
           className="icon me-1"

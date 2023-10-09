@@ -12,37 +12,10 @@ const TodoForm = ({ addTodo, dataToUpdate_id, editTodo }) => {
   const inputRef = useRef();
   const [data, setdata] = useState("");
   const [updatedData, setupdatedData] = useState("");
-  const [preColorID, setPreColorID] = useState(null);
-  const colors = [
-    "#8e44ad",
-    "#fd79a8",
-    "#f9ca24",
-    "#badc58",
-    "#eb4d4b",
-    "#ED4C67",
-    "#B53471",
-    "#fa8231",
-  ];
 
   const handleSubmit = async (e) => {
-    const randomNumber = Math.floor(Math.random() * 8);
-    const color = colors[randomNumber];
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3001", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          text: data,
-          color: color,
-        }),
-      });
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
+    addTodo(data);
   };
 
   const handleUpdate = (e) => {
