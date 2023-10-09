@@ -68,7 +68,7 @@ const TodoList = () => {
         console.log(response);
         if (response.ok) {
           fetchTodos();
-          dataToUpdate_id(0);
+          setDataToUpdate_id(0);
         }
       } catch (error) {
         console.log(error);
